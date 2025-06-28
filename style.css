@@ -150,7 +150,6 @@ body {
   text-align: center;
   justify-content: center;
   align-items: center;
-  
 }
 
 .modal-content a {
@@ -161,6 +160,16 @@ body {
   font-weight: normal;
 }
 
+
+#modalImages img {
+  width: auto;           /* ✅ 가로 비율 자동 */
+  max-height: 90vh;      /* ✅ 세로 최대값만 제한 */
+  max-width: 100vw;      /* 가로가 너무 커지지 않게 */
+  height: auto;
+  object-fit: contain;   /* 이미지 왜곡 방지 */
+  display: block;
+  margin-bottom: 20px;
+}
 
   .menu-toggle {
   position: fixed;
