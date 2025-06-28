@@ -201,25 +201,25 @@ body {
   transform: rotate(45deg);
 }
 
-..credit-overlay {
+.credit-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* 이미지 너비 기준 */
+  width: 100%;   /* container 기준으로 */
   height: 100%;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.85);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1001;
+  z-index: 10;   /* 이미지보다 위로 */
 }
 
 .credit-content {
-  font-family: "helvetica neue";
   font-size: 14px;
-  color: #000;
-  padding: 20px;
+  font-family: "helvetica neue";
   text-align: left;
+  padding: 20px;
+  max-width: 300px;
 }
 
 
