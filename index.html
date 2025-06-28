@@ -23,7 +23,7 @@
 <div id="modal-menu" class="modal">
   <!-- <span class="close-modal" onclick="closeMenu()">×</span> -->
   <div class="modal-content">
-    <a href="index.html" class="active">Work</a>
+    <a href="index.html">Work</a>
     <a href="brand.html">Brand</a>
     <a href="note.html">Note</a>
     <a href="about.html">About</a>
@@ -102,69 +102,11 @@
   },
   braidedhair: {
     line1: "Braided hair",
-    line2: "Type: belt",ㅁ
+    line2: "Type: belt",
     line3: "Material: Cow leather, Brass buckle",
     line4: "Year: 2025"
   }
 };
-
-
-
-function showImage(index) {
-  const loader = document.getElementById("loader");
-  loader.style.display = "block";
-
-  container.innerHTML = ""; // 기존 이미지/오버레이 초기화
-
-  const img = document.createElement("img");
-  img.src = images[currentProject][index];
-
-  img.onload = () => {
-    loader.style.display = "none";
-    container.appendChild(img);
-
-    // ✅ 여기서만 오버레이 추가
-    if (currentProject === "can" && index === images["can"].length - 1) {
-      const creditOverlay = document.createElement("div");
-      creditOverlay.className = "credit-overlay";
-      creditOverlay.innerHTML = `
-        <div class="credit-content">
-          <h3>(EN)</h3>
-          <strong>Credit</strong><br>
-          Photo : Lee Juyeon<br>
-          Construction : GLROW Design<br>
-          Stained Glass : Jinyoung Glass<br><br>
-
-          <strong>COM</strong><br>
-          Han Joowon<br>
-          Cho Yunjei<br><br>
-
-          <h3>(KR)</h3>
-          <strong>Credit</strong><br>
-          Photo : 이주연<br>
-          Construction : 글로우 디자인<br>
-          Stained Glass : 진영글라스<br><br>
-
-          <strong>COM</strong><br>
-          한주원, 조윤제
-        </div>
-      `;
-      container.appendChild(creditOverlay); // 이미지 다음에 삽입
-    }
-
-    // 페이드 효과 (최초 1회만)
-    if (isFirstLoad) {
-      img.classList.add("pre-fade");
-      requestAnimationFrame(() => {
-        img.classList.add("fade-in");
-        img.classList.remove("pre-fade");
-      });
-      isFirstLoad = false;
-    }
-  };
-}
-
-
 
   let currentIndex = 0;
   let currentProject = "";
