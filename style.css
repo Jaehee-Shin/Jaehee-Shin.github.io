@@ -216,6 +216,11 @@ body {
     gap: 20px;
   }
 
+   #image-container img {
+    width: 100px; /* 모바일에서 더 작게 */
+  }
+}
+
    
 }
 
