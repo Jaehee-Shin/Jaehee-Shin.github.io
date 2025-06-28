@@ -50,6 +50,11 @@ body {
   color: black;
 }
 
+.modal-content a.active {
+  display: inline-block;
+  position: relative;
+}
+
 .slider-wrapper {
   position: relative;
   width: 100%;         /* 전체 너비 */
