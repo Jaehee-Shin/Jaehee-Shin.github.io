@@ -1,4 +1,4 @@
-		*{
+*{
  margin : 0;
  padding: 0;
  box-sizing: border-box;
@@ -12,7 +12,8 @@ body {
     color: #424242;
   }
 
-  html, body {
+
+ html, body {
   overflow: hidden;
   height: 100%;
 }
@@ -30,23 +31,21 @@ body {
 }
     
 #image-container {
+  margin-top: 30px;
   display: flex;
-  margin-top: 900px;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
   height: 80vh; /* 원하는 높이로 조절 가능 */
-  margin-bottom: 200px;
-  
 }
 
     
- #image-container img {
 
-   width: 100px; /* 또는 600px 등으로 원하는 크기 지정 가능 */
+ #image-container img {
+   width: 400px; /* 또는 600px 등으로 원하는 크기 지정 가능 */
   height: auto; /* 비율 유지 */
   transition: opacity 1s ease, transform 1s ease;
 }
-
 
 
 .slider-wrapper {
@@ -74,8 +73,6 @@ body {
 #nextBtn {
   right: 20px;
 }
-
-
 
 .inspiredby { 
     size: 100px;
@@ -107,7 +104,7 @@ body {
 
 
 #menuSelect {
-	margin-left:30px;
+  margin-left:30px;
 }
 
 
@@ -151,22 +148,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  text-align: left;
+  text-align: center;
   justify-content: center;
-  align-items: flex-start;
-}
-
-.modal-content a.active {
-  display: inline-block;
-  position: relative;
-}
-
-.modal-content a.active::before {
-  content: "•";
-  color: black;
-  font-size: 20px;
-  margin-right: 8px;
-  vertical-align: middle;
+  align-items: center;
+  
 }
 
 .modal-content a {
@@ -177,16 +162,6 @@ body {
   font-weight: normal;
 }
 
-
-#modalImages img {
-  width: auto;            /* 가로 자동 → 종횡비 유지 */
-  height: auto;           /* 세로 자동 → 종횡비 유지 */
-  max-height: 90vh;       /* 화면 높이 초과하지 않도록 제한 */
-  max-width: 90vw;        /* 화면 너비 초과하지 않도록 제한 */
-  object-fit: contain;    /* 여백 생겨도 잘림 방지 */
-  display: block;
-  margin: 0 auto 20px auto; /* 중앙 정렬 + 하단 여백 */
-}
 
   .menu-toggle {
   position: fixed;
@@ -239,12 +214,7 @@ body {
     gap: 20px;
   }
 
-   #image-container {
-    margin-top: 80px; /* 원하는 만큼 조정 가능 */
-  }
+   
 }
 
   
-
-
-
