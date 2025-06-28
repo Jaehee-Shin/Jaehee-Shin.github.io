@@ -162,13 +162,13 @@ body {
 
 
 #modalImages img {
-  width: auto;           /* ✅ 가로 비율 자동 */
-  max-height: 90vh;      /* ✅ 세로 최대값만 제한 */
-  max-width: 100vw;      /* 가로가 너무 커지지 않게 */
-  height: auto;
-  object-fit: contain;   /* 이미지 왜곡 방지 */
+  width: auto;            /* 가로 자동 → 종횡비 유지 */
+  height: auto;           /* 세로 자동 → 종횡비 유지 */
+  max-height: 90vh;       /* 화면 높이 초과하지 않도록 제한 */
+  max-width: 90vw;        /* 화면 너비 초과하지 않도록 제한 */
+  object-fit: contain;    /* 여백 생겨도 잘림 방지 */
   display: block;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto; /* 중앙 정렬 + 하단 여백 */
 }
 
   .menu-toggle {
