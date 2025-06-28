@@ -34,13 +34,14 @@ body {
 }
     
 #image-container {
-  margin-top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   height: 80vh; /* 원하는 높이로 조절 가능 */
-}
+  margin-bottom: 200px;
+  }
+
 
     
 
