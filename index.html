@@ -51,35 +51,6 @@
 </div>
 
 
-
-<div id="image-container" style="position: relative;">
-  <!-- 이미지가 여기에 append됨 -->
-  <div id="creditOverlay" class="credit-overlay">
-    <div class="credit-content">
-      <h3>(EN)</h3>
-      <strong>Credit</strong><br>
-      Photo : Lee Juyeon<br>
-      Construction : GLROW Design<br>
-      Stained Glass : Jinyoung Glass<br><br>
-
-      <strong>COM</strong><br>
-      Han Joowon<br>
-      Cho Yunjei<br><br>
-
-      <h3>(KR)</h3>
-      <strong>Credit</strong><br>
-      Photo : 이주연<br>
-      Construction : 글로우 디자인<br>
-      Stained Glass : 진영글라스<br><br>
-
-      <strong>COM</strong><br>
-      한주원, 조윤제
-    </div>
-  </div>
-</div>
-
-
-
   <p class= "update"> Last update: 2025.06.21 </p>
 
   <div class="slider-wrapper">
@@ -284,19 +255,6 @@ container.addEventListener("click", () => {
     showImage(currentIndex);
   }
 });
-
-nextBtn.addEventListener("click", () => {
-  if (currentProject && images[currentProject]) {
-    if (currentIndex < images[currentProject].length - 1) {
-      currentIndex++;
-      showImage(currentIndex);
-    } else if (currentProject === "can") {
-      document.getElementById("creditOverlay").style.display = "flex";
-    } else {
-      currentIndex = 0;
-      showImage(currentIndex);
-    }
-  }
 
 
 </script>
