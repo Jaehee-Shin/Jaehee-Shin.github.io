@@ -203,6 +203,7 @@ body {
 
 .credit-overlay {
   position: absolute;
+  border: 2px solid red;
   top: 0;
   left: 0;
   width: 100%;   /* container 기준으로 */
