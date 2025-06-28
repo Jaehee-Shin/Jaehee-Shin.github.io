@@ -217,7 +217,7 @@ body {
   }
 
    #image-container img {
-    width: 100px; /* 모바일에서 더 작게 */
+    width: 50px; /* 모바일에서 더 작게 */
   }
 }
 
