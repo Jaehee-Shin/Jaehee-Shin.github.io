@@ -35,14 +35,14 @@ body {
   align-items: center;
   overflow: hidden;
   height: 80vh; /* 원하는 높이로 조절 가능 */
-  margin-bottom: 50px;
+  margin-bottom: 200px;
   
 }
 
     
  #image-container img {
 
-   width: 350px; /* 또는 600px 등으로 원하는 크기 지정 가능 */
+   width: 500px; /* 또는 600px 등으로 원하는 크기 지정 가능 */
   height: auto; /* 비율 유지 */
   transition: opacity 1s ease, transform 1s ease;
 }
