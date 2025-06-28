@@ -75,7 +75,6 @@ body {
 .modal-content a.active::before {
   content: "• ";
   color: black;
-  margin-right: 4px;
 }
 
 .inspiredby { 
