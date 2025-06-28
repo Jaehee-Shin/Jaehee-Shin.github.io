@@ -32,7 +32,6 @@ body {
     
 #image-container {
   margin-top: 30px;
-  position: relative;  /* ← 반드시 필요 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -200,6 +199,8 @@ body {
 .menu-toggle.rotate .plus-icon {
   transform: rotate(45deg);
 }
+
+
 
 
 
