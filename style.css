@@ -31,7 +31,7 @@ body {
     
 #image-container {
   display: flex;
-
+  margin-top: 900px;
   align-items: center;
   overflow: hidden;
   height: 80vh; /* 원하는 높이로 조절 가능 */
