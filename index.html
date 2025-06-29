@@ -114,30 +114,8 @@
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
 
-  function showImage(index) {
-  const loader = document.getElementById("loader");
-  loader.style.display = "block"; // 🔵 로딩 시작
 
-  container.innerHTML = "";
 
-  const img = document.createElement("img");
-  img.src = images[currentProject][index];
-
-  img.onload = () => {
-    loader.style.display = "none"; // ✅ 이미지 완전히 로드되면 숨김
-    container.appendChild(img);
-
-    // 최초 로딩 시에만 페이드인 효과
-    if (isFirstLoad) {
-      img.classList.add("pre-fade");
-      requestAnimationFrame(() => {
-        img.classList.add("fade-in");
-        img.classList.remove("pre-fade");
-      });
-      isFirstLoad = false;
-    }
-  };
-}
 
 document.getElementById("project-select").addEventListener("change", function () {
   currentProject = this.value;
@@ -209,7 +187,15 @@ window.addEventListener("DOMContentLoaded", () => {
       currentIndex++;
       showImage(currentIndex);
     }
-  });
+
+    else {
+    // ✅ 마지막 이미지에서 또 눌렀을 때 실행
+    const overlayWrapper = document.querySelector(".image-overlay");
+    if (overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
+      overlayWrapper.classList.add("show-filter");
+    }
+  }
+});
 
   function toggleMenu() {
   const modal = document.getElementById("modal-menu");
@@ -259,17 +245,19 @@ function showImage(index) {
   loader.style.display = "block";
   container.innerHTML = "";
 
-  const imgWrapper = document.createElement("div");
-  imgWrapper.classList.add("image-fade-overlay");
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("image-overlay");
+  wrapper.style.position = "relative";
 
   const img = document.createElement("img");
   img.src = images[currentProject][index];
 
   img.onload = () => {
     loader.style.display = "none";
-    imgWrapper.appendChild(img);
-    container.appendChild(imgWrapper);
+    wrapper.appendChild(img);
+    container.appendChild(wrapper);
 
+    // 페이드인 효과
     if (isFirstLoad) {
       img.classList.add("pre-fade");
       requestAnimationFrame(() => {
@@ -277,11 +265,6 @@ function showImage(index) {
         img.classList.remove("pre-fade");
       });
       isFirstLoad = false;
-    }
-
-    // 마지막 이미지에만 불투명 오버레이 적용
-    if (index === images[currentProject].length - 1) {
-      imgWrapper.classList.add("fade-in-overlay");
     }
   };
 }
