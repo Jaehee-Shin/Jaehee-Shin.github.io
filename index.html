@@ -110,6 +110,8 @@
   let currentProject = "";
   let isFirstLoad = true; // 🔑 최초 로딩 여부 체크용
 
+  let overlayApplied = false; // ✅ 블러 적용 여부 플래그
+
 function applyOverlayIfLastImage() {
   const isLast = currentIndex === images[currentProject].length - 1;
   const overlayWrapper = document.querySelector(".image-overlay");
@@ -191,16 +193,19 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   nextBtn.addEventListener("click", () => {
-    if (currentIndex < images[currentProject].length - 1) {
-      currentIndex++;
+  if (currentIndex < images[currentProject].length - 1) {
+    currentIndex++;
+    showImage(currentIndex);
+  } else {
+    if (!overlayApplied) {
+      applyOverlayIfLastImage(); // 필터 덮기
+      overlayApplied = true;
+    } else {
+      currentIndex = 0;
+      overlayApplied = false;
       showImage(currentIndex);
     }
-
-    else {
-  applyOverlayIfLastImage(); // ✅ 공통 함수 호출
-  currentIndex = 0;
-    setTimeout(() => showImage(currentIndex), 500);
-}
+  }
 });
    
 
@@ -243,15 +248,19 @@ container.addEventListener("click", () => {
     if (currentIndex < images[currentProject].length - 1) {
       currentIndex++;
       showImage(currentIndex);
-     
     } else {
-      applyOverlayIfLastImage(); // ✅ 공통 함수 호출
-        currentIndex = 0;          // 첫 이미지 인덱스로 리셋
-      setTimeout(() => showImage(currentIndex), 500); // 약간 딜레이 후 전환
-
+      if (!overlayApplied) {
+        applyOverlayIfLastImage(); // 필터 덮기
+        overlayApplied = true;
+      } else {
+        currentIndex = 0;
+        overlayApplied = false;
+        showImage(currentIndex);
+      }
     }
   }
 });
+
 
 function showImage(index) {
   const loader = document.getElementById("loader");
@@ -270,7 +279,7 @@ function showImage(index) {
     wrapper.appendChild(img);
     container.appendChild(wrapper);
 
-    // 초기화
+    // ✅ 오버레이 초기화는 여기에만
     wrapper.classList.remove("show-filter");
 
     if (isFirstLoad) {
