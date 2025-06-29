@@ -14,6 +14,8 @@ body {
     linear-gradient(to right, #ccc 1px, transparent 1px),
     linear-gradient(to bottom, #ccc 1px, transparent 1px);
     background-size: 30px 30px; /* 격자 간격 */
+    background-position: center -10px;
+
   }
 
    html, body {
