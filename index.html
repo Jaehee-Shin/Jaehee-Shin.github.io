@@ -198,6 +198,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     else {
   applyOverlayIfLastImage(); // ✅ 공통 함수 호출
+  currentIndex = 0;
+    setTimeout(() => showImage(currentIndex), 500);
 }
 });
    
@@ -241,8 +243,12 @@ container.addEventListener("click", () => {
     if (currentIndex < images[currentProject].length - 1) {
       currentIndex++;
       showImage(currentIndex);
+     
     } else {
       applyOverlayIfLastImage(); // ✅ 공통 함수 호출
+        currentIndex = 0;          // 첫 이미지 인덱스로 리셋
+      setTimeout(() => showImage(currentIndex), 500); // 약간 딜레이 후 전환
+
     }
   }
 });
