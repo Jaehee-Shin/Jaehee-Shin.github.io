@@ -254,6 +254,38 @@ container.addEventListener("click", () => {
   }
 });
 
+function showImage(index) {
+  const loader = document.getElementById("loader");
+  loader.style.display = "block";
+  container.innerHTML = "";
+
+  const imgWrapper = document.createElement("div");
+  imgWrapper.classList.add("image-fade-overlay");
+
+  const img = document.createElement("img");
+  img.src = images[currentProject][index];
+
+  img.onload = () => {
+    loader.style.display = "none";
+    imgWrapper.appendChild(img);
+    container.appendChild(imgWrapper);
+
+    if (isFirstLoad) {
+      img.classList.add("pre-fade");
+      requestAnimationFrame(() => {
+        img.classList.add("fade-in");
+        img.classList.remove("pre-fade");
+      });
+      isFirstLoad = false;
+    }
+
+    // 마지막 이미지에만 불투명 오버레이 적용
+    if (index === images[currentProject].length - 1) {
+      imgWrapper.classList.add("fade-in-overlay");
+    }
+  };
+}
+
 
 </script>
 </body>
