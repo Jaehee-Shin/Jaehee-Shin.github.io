@@ -1,4 +1,4 @@
-*{
+    *{
  margin : 0;
  padding: 0;
  box-sizing: border-box;
@@ -207,8 +207,6 @@ body {
 
 
 
-
-
 @media screen and (min-width: 769px) {
   .nav-menu {
     display: flex !important; /* 데스크탑에서는 항상 보이게 */
@@ -216,12 +214,10 @@ body {
     gap: 20px;
   }
 
-   #image-container img {
-    width: 50px; /* 모바일에서 더 작게 */
-  }
+   
 }
 
-   
+  
 
 
   
