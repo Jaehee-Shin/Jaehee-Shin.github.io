@@ -110,6 +110,14 @@
   let currentProject = "";
   let isFirstLoad = true; // 🔑 최초 로딩 여부 체크용
 
+function applyOverlayIfLastImage() {
+  const isLast = currentIndex === images[currentProject].length - 1;
+  const overlayWrapper = document.querySelector(".image-overlay");
+  if (isLast && overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
+    overlayWrapper.classList.add("show-filter");
+  }
+}
+
   const container = document.getElementById("image-container");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
@@ -189,13 +197,12 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     else {
-    // ✅ 마지막 이미지에서 또 눌렀을 때 실행
-    const overlayWrapper = document.querySelector(".image-overlay");
-    if (overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
-      overlayWrapper.classList.add("show-filter");
-    }
-  }
+  applyOverlayIfLastImage(); // ✅ 공통 함수 호출
+}
 });
+   
+
+
 
   function toggleMenu() {
   const modal = document.getElementById("modal-menu");
@@ -233,10 +240,10 @@ container.addEventListener("click", () => {
   if (currentProject && images[currentProject]) {
     if (currentIndex < images[currentProject].length - 1) {
       currentIndex++;
+      showImage(currentIndex);
     } else {
-      currentIndex = 0; // 마지막 이미지면 처음으로
+      applyOverlayIfLastImage(); // ✅ 공통 함수 호출
     }
-    showImage(currentIndex);
   }
 });
 
@@ -257,7 +264,9 @@ function showImage(index) {
     wrapper.appendChild(img);
     container.appendChild(wrapper);
 
-    // 페이드인 효과
+    // 초기화
+    wrapper.classList.remove("show-filter");
+
     if (isFirstLoad) {
       img.classList.add("pre-fade");
       requestAnimationFrame(() => {
