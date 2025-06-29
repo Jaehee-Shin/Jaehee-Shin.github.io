@@ -81,6 +81,14 @@ body {
     padding:10px;
      }
 
+     #project-select {
+  font-size: 16px;    /* 글씨 크기 */
+  padding: 10px 15px; /* 내부 여백 */
+  width: 180px;       /* 원하는 너비 */
+  height: 45px;       /* 원하는 높이 */
+  border-radius: 4px; /* 모서리 둥글게 */
+}
+
 
 
 .update {
@@ -105,6 +113,7 @@ body {
 
 #menuSelect {
   margin-left:30px;
+
 }
 
 
