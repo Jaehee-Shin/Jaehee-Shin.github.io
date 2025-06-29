@@ -209,6 +209,11 @@ body {
   transform: rotate(45deg);
 }
 
+.image-overlay {
+  position: relative;
+  z-index: 2; /* 이미지 포함 wrapper */
+}
+
 .image-overlay::after {
   content: "";
   position: absolute;
@@ -222,7 +227,7 @@ body {
   opacity: 1;
   transition: opacity 1s ease;
   pointer-events: none;
-  z-index: 20;
+  z-index: 1;
 }
 
 .image-overlay.show-filter::after {
