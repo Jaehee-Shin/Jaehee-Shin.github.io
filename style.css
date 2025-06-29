@@ -89,6 +89,8 @@ body {
 
 
 
+
+
 .update {
       position: fixed;
       bottom: 20px;
@@ -207,10 +209,23 @@ body {
   transform: rotate(45deg);
 }
 
+.image-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+  z-index: 10;
+}
 
-
-
-
+.image-overlay.show-filter::after {
+  opacity: 0.5;
+}
 
 
 
