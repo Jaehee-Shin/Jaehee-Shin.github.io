@@ -18,10 +18,19 @@ body {
   height: 100%;
 }
 
+.modal-content a.active-menu {
+  position: relative;
+  padding-left: 16px;  /* 점을 위한 여백 추가 */
+}
+
+
 .modal-content a.active-menu::before {
   content: "•";
-  margin-right: 8px;
-  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
   color: black;
 }
 
