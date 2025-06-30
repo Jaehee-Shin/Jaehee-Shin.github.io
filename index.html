@@ -173,22 +173,17 @@ document.getElementById("project-select").addEventListener("change", function ()
 
 
 window.addEventListener("DOMContentLoaded", () => {
-  let currentPage = location.pathname.split("/").pop();
+  let currentPage = location.pathname.split("/").pop() || "index.html";
+  if (!currentPage.endsWith(".html")) currentPage = "index.html";
 
-  // 빈 문자열이면 index.html로 간주
-  if (!currentPage || currentPage === "") {
-    currentPage = "index.html";
-  }
-
-  // 메뉴 링크에 active-menu 클래스 부여
   document.querySelectorAll(".modal-content a").forEach(link => {
     const linkHref = link.getAttribute("href");
-    if (linkHref === currentPage) {
+    if (currentPage.includes(linkHref)) {
       link.classList.add("active-menu");
     }
   });
 
-  // 초기 설정 (생략 가능)
+  // 초기 선택 세팅
   const projectSelect = document.getElementById("project-select");
   projectSelect.value = "can";
   currentProject = "can";
@@ -209,7 +204,6 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("desc-line6").textContent = desc.line6;
   }
 });
-
 
 
   prevBtn.addEventListener("click", () => {
