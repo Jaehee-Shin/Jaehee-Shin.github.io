@@ -18,6 +18,13 @@ body {
   height: 100%;
 }
 
+.modal-content a.active-menu::before {
+  content: "•";
+  margin-right: 8px;
+  font-size: 20px;
+  color: black;
+}
+
   .image-description {
   position: fixed;
   bottom: 50px;
