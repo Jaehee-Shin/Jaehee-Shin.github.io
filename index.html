@@ -76,7 +76,7 @@
       "images/250316_jaehee_Low_30.jpg",
       "images/250316_jaehee_Low_28.jpg",
       "images/250316_jaehee_Low_29.jpg",
-      "images/250316_jaehee_Low_43.jpg",
+      "images/250316_jaehui_extra_Low_34.jpg",
     ],
     braidedhair: [
       "images/250316_jaehee_Low_40.jpg",
@@ -172,7 +172,7 @@ document.getElementById("project-select").addEventListener("change", function ()
 });
 window.addEventListener("DOMContentLoaded", () => {
   // ✅ 현재 페이지 파일명 가져오기
-  const currentPage = location.pathname.split("/").pop();
+  const currentPage = location.pathname.split("/").pop() || "index.html";
 
   // ✅ 현재 페이지에 해당하는 메뉴에 active-menu 클래스 추가
   document.querySelectorAll(".modal-content a").forEach(link => {
