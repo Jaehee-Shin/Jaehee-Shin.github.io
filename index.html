@@ -173,17 +173,22 @@ document.getElementById("project-select").addEventListener("change", function ()
 
 
 window.addEventListener("DOMContentLoaded", () => {
-  // 현재 페이지 파일명 (예: index.html)
-  const currentPage = location.pathname.split("/").pop() || "index.html";
+  let currentPage = location.pathname.split("/").pop();
 
-  // 메뉴 링크 순회하며 active 붙이기
+  // 빈 문자열이면 index.html로 간주
+  if (!currentPage || currentPage === "") {
+    currentPage = "index.html";
+  }
+
+  // 메뉴 링크에 active-menu 클래스 부여
   document.querySelectorAll(".modal-content a").forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
+    const linkHref = link.getAttribute("href");
+    if (linkHref === currentPage) {
       link.classList.add("active-menu");
     }
   });
 
-  // 아래는 초기화 코드
+  // 초기 설정 (생략 가능)
   const projectSelect = document.getElementById("project-select");
   projectSelect.value = "can";
   currentProject = "can";
