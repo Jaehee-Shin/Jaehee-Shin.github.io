@@ -227,8 +227,19 @@ container.addEventListener("click", () => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
+  let currentPage = location.pathname.split("/").pop() || "brand.html";
+  if (!currentPage.endsWith(".html")) currentPage = "brand.html";
+
+  document.querySelectorAll(".modal-content a").forEach(link => {
+    const linkHref = link.getAttribute("href");
+    if (currentPage.includes(linkHref)) {
+      link.classList.add("active-menu");
+    }
+  });
+
+  // 초기 선택 세팅
   const projectSelect = document.getElementById("project-select");
-  projectSelect.value = "miguproduct"; // 드롭다운 기본 선택
+  projectSelect.value = "miguproduct";
   currentProject = "miguproduct";
   currentIndex = 0;
   isFirstLoad = true;
@@ -239,12 +250,12 @@ window.addEventListener("DOMContentLoaded", () => {
     nextBtn.style.display = "block";
 
     const desc = projectDescriptions[currentProject];
-    document.getElementById("desc-line1").textContent = desc.line1 || "";
-    document.getElementById("desc-line2").textContent = desc.line2 || "";
-    document.getElementById("desc-line3").textContent = desc.line3 || "";
-    document.getElementById("desc-line4").textContent = desc.line4 || "";
-    document.getElementById("desc-line5").textContent = desc.line5 || "";
-    document.getElementById("desc-line6").textContent = desc.line6 || "";
+    document.getElementById("desc-line1").textContent = desc.line1;
+    document.getElementById("desc-line2").textContent = desc.line2;
+    document.getElementById("desc-line3").textContent = desc.line3;
+    document.getElementById("desc-line4").textContent = desc.line4;
+    document.getElementById("desc-line5").textContent = desc.line5;
+    document.getElementById("desc-line6").textContent = desc.line6;
   }
 });
 </script>
