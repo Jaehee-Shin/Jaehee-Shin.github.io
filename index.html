@@ -125,6 +125,16 @@ function applyOverlayIfLastImage() {
   const nextBtn = document.getElementById("nextBtn");
 
 
+  // 현재 페이지 파일명 가져오기
+  const currentPage = location.pathname.split("/").pop();
+
+  // 메뉴 링크들 선택
+  document.querySelectorAll(".modal-content a").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active-menu");
+    }
+  });
+
 
 
 document.getElementById("project-select").addEventListener("change", function () {
