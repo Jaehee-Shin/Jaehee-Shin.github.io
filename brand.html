@@ -172,14 +172,15 @@ window.addEventListener("DOMContentLoaded", () => {
   let currentPage = location.pathname.split("/").pop() || "brand.html";
   if (!currentPage.endsWith(".html")) currentPage = "brand.html";
 
+  // 정확하게 현재 메뉴에 클래스 부여
   document.querySelectorAll(".modal-content a").forEach(link => {
-  const linkHref = link.getAttribute("href");
-  if (linkHref === currentPage) {
-    link.classList.add("active-menu");
-  }
-});
+    const linkHref = link.getAttribute("href");
+    if (linkHref === currentPage) {
+      link.classList.add("active-menu");
+    }
+  });
 
-  // 초기 선택 세팅
+  // 초기 선택 세팅 (brand 페이지용)
   const projectSelect = document.getElementById("project-select");
   projectSelect.value = "miguproduct";
   currentProject = "miguproduct";
