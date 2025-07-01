@@ -169,17 +169,20 @@ document.getElementById("project-select").addEventListener("change", function ()
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  const currentPage = location.pathname.split("/").pop() || "brand.html";
+  let currentPage = decodeURIComponent(location.pathname.split("/").pop() || "brand.html");
 
-  // 현재 페이지 활성 메뉴 표시
+  // 디버깅 로그 (필요 시 확인)
+  console.log("현재 페이지 파일명:", currentPage);
+
   document.querySelectorAll(".modal-content a").forEach(link => {
     const linkHref = link.getAttribute("href");
+    // 정확히 일치할 경우만 active-menu 부여
     if (linkHref === currentPage) {
       link.classList.add("active-menu");
     }
   });
 
-  // 👇👇 아래도 모두 이 안에 있어야 함!
+  // 초기 세팅
   const projectSelect = document.getElementById("project-select");
   projectSelect.value = "miguproduct";
   currentProject = "miguproduct";
