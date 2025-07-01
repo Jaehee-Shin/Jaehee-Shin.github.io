@@ -20,15 +20,17 @@ body {
 
 .overlay-credit {
   position: absolute;
-  bottom: 30px;
-  left: 30px;
-  background-color: rgba(255,255,255,0.8);
-  padding: 10px;
-  font-size: 13px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 14px;
   color: #000;
   z-index: 20;
-  opacity: 0.9;
-  border-radius: 4px;
+  border-radius: 6px;
+  line-height: 1.6;
 }
 
 .modal-content a.active-menu {

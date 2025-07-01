@@ -113,13 +113,33 @@
 
   let overlayApplied = false; // ✅ 블러 적용 여부 플래그
 
+
+
+
 function applyOverlayIfLastImage() {
   const isLast = currentIndex === images[currentProject].length - 1;
   const overlayWrapper = document.querySelector(".image-overlay");
+
   if (isLast && overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
     overlayWrapper.classList.add("show-filter");
+
+    // 기존 크레딧이 있다면 제거 (중복 방지)
+    const existingCredit = overlayWrapper.querySelector(".overlay-credit");
+    if (existingCredit) existingCredit.remove();
+
+    // 📍 중앙에 위치한 크레딧 텍스트 삽입
+    const credit = document.createElement("div");
+    credit.className = "overlay-credit";
+    credit.innerHTML = `
+      <p>Photographer: Jaehee Shin</p>
+      <p>Model: Y. Kim</p>
+      <p>Year: 2025</p>
+    `;
+    overlayWrapper.appendChild(credit);
   }
 }
+
+
 
   const container = document.getElementById("image-container");
   const prevBtn = document.getElementById("prevBtn");
