@@ -171,15 +171,15 @@ document.getElementById("project-select").addEventListener("change", function ()
 window.addEventListener("DOMContentLoaded", () => {
   const currentPage = location.pathname.split("/").pop() || "brand.html";
 
+  // 현재 페이지 활성 메뉴 표시
   document.querySelectorAll(".modal-content a").forEach(link => {
     const linkHref = link.getAttribute("href");
     if (linkHref === currentPage) {
       link.classList.add("active-menu");
     }
   });
-});
 
-  // 초기 선택 세팅 (brand 페이지용)
+  // 👇👇 아래도 모두 이 안에 있어야 함!
   const projectSelect = document.getElementById("project-select");
   projectSelect.value = "miguproduct";
   currentProject = "miguproduct";
