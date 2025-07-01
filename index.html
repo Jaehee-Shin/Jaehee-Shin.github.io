@@ -123,22 +123,38 @@ function applyOverlayIfLastImage() {
   if (isLast && overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
     overlayWrapper.classList.add("show-filter");
 
-    // 기존 크레딧이 있다면 제거 (중복 방지)
+    // 기존 크레딧 제거
     const existingCredit = overlayWrapper.querySelector(".overlay-credit");
     if (existingCredit) existingCredit.remove();
 
-    // 📍 중앙에 위치한 크레딧 텍스트 삽입
+    // 크레딧 생성
     const credit = document.createElement("div");
     credit.className = "overlay-credit";
+
+    const creditData = projectCredits[currentProject]; // 📌 동적으로 크레딧 가져오기
     credit.innerHTML = `
-      <p>Photography: San Choi</p>
-      <p>Hair: Taehyun Kim</p>
-      <p>Model: Youngjoo Jee</p>
+      <p>${creditData.line1}</p>
+      <p>${creditData.line2}</p>
+      <p>${creditData.line3}</p>
     `;
+
     overlayWrapper.appendChild(credit);
   }
 }
 
+
+const projectCredits = {
+  can: {
+    line1: "Photography: San Choi",
+    line2: "Hair: Taehyun Kim",
+    line3: "Model: Youngjoo Jee"
+  },
+  braidedhair: {
+    line1: "Photography: Jiwoo Park",
+    line2: "Styling: Euna Lee",
+    line3: "Model: Arin Kim"
+  }
+};
 
 
   const container = document.getElementById("image-container");
