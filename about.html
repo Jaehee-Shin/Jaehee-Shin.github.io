@@ -139,18 +139,18 @@
 
 
 window.addEventListener("DOMContentLoaded", () => {
-  // 메뉴 활성화
   let currentPage = location.pathname.split("/").pop() || "about.html";
   if (!currentPage.endsWith(".html")) currentPage = "about.html";
 
+  // 메뉴 활성화
   document.querySelectorAll(".modal-content a").forEach(link => {
     const linkHref = link.getAttribute("href");
-    if (currentPage.includes(linkHref)) {
+    if (currentPage === linkHref) {
       link.classList.add("active-menu");
     }
   });
 
-  // 초기 선택 세팅
+  // 아래는 about에서는 사실상 의미 없지만 유지 (혹시 future 확장 대비)
   const projectSelect = document.getElementById("project-select");
   if (projectSelect) {
     projectSelect.value = "";
