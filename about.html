@@ -79,30 +79,30 @@
 <script>
 
 
-  const images = {
-    can: [
-      "can/250316_jaehee_Low_19.jpg",
-      "can/250316_jaehee_Low_31.jpg",
-    ],
-    braidedhair: [
-      "braidedhair/250316_jaehee_Low_40.jpg",
-    ]
-  };
+//   const images = {
+//     can: [
+//       "can/250316_jaehee_Low_19.jpg",
+//       "can/250316_jaehee_Low_31.jpg",
+//     ],
+//     braidedhair: [
+//       "braidedhair/250316_jaehee_Low_40.jpg",
+//     ]
+//   };
 
-  const projectDescriptions = {
-  can: {
-    line1: "Can",
-    line2: "Type: bag",
-    line3: "Material: Goat skin, Canvas",
-    line4: "Year: 2025"
-  },
-  braidedhair: {
-    line1: "Braided hair",
-    line2: "Type: belt",
-    line3: "Material: Cow leather, Brass buckle",
-    line4: "Year: 2025"
-  }
-};
+//   const projectDescriptions = {
+//   can: {
+//     line1: "Can",
+//     line2: "Type: bag",
+//     line3: "Material: Goat skin, Canvas",
+//     line4: "Year: 2025"
+//   },
+//   braidedhair: {
+//     line1: "Braided hair",
+//     line2: "Type: belt",
+//     line3: "Material: Cow leather, Brass buckle",
+//     line4: "Year: 2025"
+//   }
+// };
 
   let currentIndex = 0;
   let currentProject = "";
@@ -159,19 +159,19 @@ window.addEventListener("DOMContentLoaded", () => {
   currentIndex = 0;
   isFirstLoad = true;
 
-  if (images[currentProject]) {
-    showImage(currentIndex);
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
+  // if (images[currentProject]) {
+  //   showImage(currentIndex);
+  //   prevBtn.style.display = "block";
+  //   nextBtn.style.display = "block";
 
-    const desc = projectDescriptions[currentProject];
-    document.getElementById("desc-line1").textContent = desc.line1;
-    document.getElementById("desc-line2").textContent = desc.line2;
-    document.getElementById("desc-line3").textContent = desc.line3;
-    document.getElementById("desc-line4").textContent = desc.line4;
-    document.getElementById("desc-line5").textContent = desc.line5;
-    document.getElementById("desc-line6").textContent = desc.line6;
-  }
+  //   const desc = projectDescriptions[currentProject];
+  //   document.getElementById("desc-line1").textContent = desc.line1;
+  //   document.getElementById("desc-line2").textContent = desc.line2;
+  //   document.getElementById("desc-line3").textContent = desc.line3;
+  //   document.getElementById("desc-line4").textContent = desc.line4;
+  //   document.getElementById("desc-line5").textContent = desc.line5;
+  //   document.getElementById("desc-line6").textContent = desc.line6;
+  // }
 });
 
 
