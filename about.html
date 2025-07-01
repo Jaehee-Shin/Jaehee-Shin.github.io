@@ -171,6 +171,20 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+  let currentPage = location.pathname.split("/").pop() || "about.html";
+  if (!currentPage.endsWith(".html")) currentPage = "about.html";
+
+  document.querySelectorAll(".modal-content a").forEach(link => {
+    const linkHref = link.getAttribute("href");
+    if (currentPage.includes(linkHref)) {
+      link.classList.add("active-menu");
+    }
+  });
+});
+
+
+
 
 
   prevBtn.addEventListener("click", () => {
