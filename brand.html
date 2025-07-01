@@ -104,6 +104,50 @@
   let currentProject = "";
   let isFirstLoad = true; // 🔑 최초 로딩 여부 체크용
 
+
+
+  
+function applyOverlayIfLastImage() {
+  const isLast = currentIndex === images[currentProject].length - 1;
+  const overlayWrapper = document.querySelector(".image-overlay");
+
+  if (isLast && overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
+    overlayWrapper.classList.add("show-filter");
+
+    // 기존 크레딧 제거
+    const existingCredit = overlayWrapper.querySelector(".overlay-credit");
+    if (existingCredit) existingCredit.remove();
+
+    // 크레딧 생성
+    const credit = document.createElement("div");
+    credit.className = "overlay-credit";
+
+    const creditData = projectCredits[currentProject]; // 📌 동적으로 크레딧 가져오기
+    credit.innerHTML = `
+      <p>${creditData.line1}</p>
+      <p>${creditData.line2}</p>
+      <p>${creditData.line3}</p>
+    `;
+
+    overlayWrapper.appendChild(credit);
+  }
+}
+
+
+const projectCredits = {
+  can: {
+    line1: "Photography: San Choi",
+    line2: "Hair: Taehyun Kim",
+    line3: "Model: Youngjoo Jee"
+  },
+  braidedhair: {
+    line1: "Photography: San Choi",
+    line2: "Hair: Taehyun Kim",
+    line3: "Model: Youngjoo Jee"
+  }
+};
+
+
   const container = document.getElementById("image-container");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
