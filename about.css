@@ -16,6 +16,20 @@ body {
   height: 100%;
 }
 
+.modal-content a.active-menu {
+  position: relative;
+}
+
+.modal-content a.active-menu::before {
+  content: "•";
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: black;
+}
+
   .about-text {
   margin-bottom: 20px;
   font-size: 15px;
