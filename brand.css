@@ -1,4 +1,4 @@
-		*{
+    *{
  margin : 0;
  padding: 0;
  box-sizing: border-box;
@@ -16,6 +16,20 @@ body {
  html, body {
   overflow: hidden;
   height: 100%;
+}
+
+.modal-content a.active-menu {
+  position: relative;
+}
+
+.modal-content a.active-menu::before {
+  content: "•";
+  position: absolute;
+  left: -16px; /* ← 이 부분이 핵심! 텍스트 왼쪽 외부에 배치 */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: black;
 }
 
   .image-description {
@@ -81,6 +95,14 @@ body {
     padding:10px;
      }
 
+     #project-select {
+  font-size: 13px;    /* 글씨 크기 */
+  
+ 
+}
+
+
+
 
 
 .update {
@@ -104,7 +126,8 @@ body {
 
 
 #menuSelect {
-	margin-left:30px;
+  margin-left:30px;
+
 }
 
 
@@ -200,10 +223,24 @@ body {
   transform: rotate(45deg);
 }
 
+.image-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+/*  backdrop-filter: blur(px);*/
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+  z-index: 10;
+}
 
-
-
-
+.image-overlay.show-filter::after {
+  opacity: 0.5;
+}
 
 
 
@@ -220,4 +257,4 @@ body {
   
 
 
-
+  
