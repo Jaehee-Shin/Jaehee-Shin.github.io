@@ -100,6 +100,8 @@
   let currentProject = "";
   let isFirstLoad = true; // 🔑 최초 로딩 여부 체크용
 
+  let overlayApplied = false; // ✅ 블러 적용 여부 플래그
+
 
 
 
@@ -144,34 +146,51 @@ const projectCredits = {
 };
 
 
-  const container = document.getElementById("image-container");
+//   const container = document.getElementById("image-container");
+//   const prevBtn = document.getElementById("prevBtn");
+//   const nextBtn = document.getElementById("nextBtn");
+
+//   function showImage(index) {
+//   const loader = document.getElementById("loader");
+//   loader.style.display = "block"; // 🔵 로딩 시작
+
+//   container.innerHTML = "";
+
+//   const img = document.createElement("img");
+//   img.src = images[currentProject][index];
+
+//   img.onload = () => {
+//     loader.style.display = "none"; // ✅ 이미지 완전히 로드되면 숨김
+//     container.appendChild(img);
+
+//     // 최초 로딩 시에만 페이드인 효과
+//     if (isFirstLoad) {
+//       img.classList.add("pre-fade");
+//       requestAnimationFrame(() => {
+//         img.classList.add("fade-in");
+//         img.classList.remove("pre-fade");
+//       });
+//       isFirstLoad = false;
+//     }
+//   };
+// }
+
+const container = document.getElementById("image-container");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
 
-  function showImage(index) {
-  const loader = document.getElementById("loader");
-  loader.style.display = "block"; // 🔵 로딩 시작
 
-  container.innerHTML = "";
+  // 현재 페이지 파일명 가져오기
+  const currentPage = location.pathname.split("/").pop();
 
-  const img = document.createElement("img");
-  img.src = images[currentProject][index];
-
-  img.onload = () => {
-    loader.style.display = "none"; // ✅ 이미지 완전히 로드되면 숨김
-    container.appendChild(img);
-
-    // 최초 로딩 시에만 페이드인 효과
-    if (isFirstLoad) {
-      img.classList.add("pre-fade");
-      requestAnimationFrame(() => {
-        img.classList.add("fade-in");
-        img.classList.remove("pre-fade");
-      });
-      isFirstLoad = false;
+  // 메뉴 링크들 선택
+  document.querySelectorAll(".modal-content a").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active-menu");
     }
-  };
-}
+  });
+
+  
 
 document.getElementById("project-select").addEventListener("change", function () {
   currentProject = this.value;
@@ -207,6 +226,8 @@ document.getElementById("project-select").addEventListener("change", function ()
 
   }
 });
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
   let currentPage = location.pathname.split("/").pop();
@@ -259,6 +280,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+
+
   function toggleMenu() {
   const modal = document.getElementById("modal-menu");
   const toggle = document.getElementById("menuToggle");
@@ -301,6 +324,37 @@ container.addEventListener("click", () => {
     showImage(currentIndex);
   }
 });
+
+function showImage(index) {
+  const loader = document.getElementById("loader");
+  loader.style.display = "block";
+  container.innerHTML = "";
+
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("image-overlay");
+  wrapper.style.position = "relative";
+
+  const img = document.createElement("img");
+  img.src = images[currentProject][index];
+
+  img.onload = () => {
+    loader.style.display = "none";
+    wrapper.appendChild(img);
+    container.appendChild(wrapper);
+
+    // ✅ 오버레이 초기화는 여기에만
+    wrapper.classList.remove("show-filter");
+
+    if (isFirstLoad) {
+      img.classList.add("pre-fade");
+      requestAnimationFrame(() => {
+        img.classList.add("fade-in");
+        img.classList.remove("pre-fade");
+      });
+      isFirstLoad = false;
+    }
+  };
+}
 
 
 </script>
