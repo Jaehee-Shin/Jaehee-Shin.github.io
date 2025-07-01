@@ -18,6 +18,19 @@ body {
   height: 100%;
 }
 
+.overlay-credit {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background-color: rgba(255,255,255,0.8);
+  padding: 10px;
+  font-size: 13px;
+  color: #000;
+  z-index: 20;
+  opacity: 0.9;
+  border-radius: 4px;
+}
+
 .modal-content a.active-menu {
   position: relative;
 }
