@@ -140,7 +140,6 @@ body {
 #menuSelect {
 
   margin-left:30px;
-  position: fixed; important!
   
 
 }
@@ -275,6 +274,12 @@ body {
     
     
   }
+  #menuSelect {
+
+  margin-left:30px;
+  position: fixed; !important;  
+
+}
 
   html, body {
   height: 100%;
