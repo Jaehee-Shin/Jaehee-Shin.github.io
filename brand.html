@@ -319,7 +319,8 @@ container.addEventListener("click", () => {
     if (currentIndex < images[currentProject].length - 1) {
       currentIndex++;
     } else {
-      currentIndex = 0; // 마지막 이미지면 처음으로
+      applyOverlayIfLastImage(); // ✅ 마지막 이미지일 때 크레딧 보여주기
+      currentIndex = 0;
     }
     showImage(currentIndex);
   }
