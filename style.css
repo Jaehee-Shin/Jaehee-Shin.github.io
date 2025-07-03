@@ -263,16 +263,20 @@ body {
 
 @media screen and (max-width: 768px) {
 
-  #image-container {
-  display: flex;
-  justify-content: center;   /* 가로 중앙 */
-  align-items: center;       /* 세로 중앙 */
-  height: 100vh;             /* 뷰포트 전체 높이 */
-}
+   #image-container {
+    display: flex;
+    justify-content: center;   /* 가로 중앙 */
+    align-items: center;       /* 세로 중앙 */
+    height: 100vh;             /* 뷰포트 전체 높이 */
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+
   #image-container img {
     
     max-width: 100%;    /* 화면에 너무 꽉 차는 걸 방지 */
-    height: auto     /* 비율 유지 */
+    height: auto;     /* 비율 유지 */
     display: block;
     
   }
