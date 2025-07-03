@@ -137,9 +137,10 @@ body {
 
 
 #menuSelect {
+  
   margin-left:30px;
-  position: fixed;
-  overflow: hidden;
+  position: fixed; important!
+  
 
 }
 
