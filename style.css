@@ -272,10 +272,10 @@ body {
 }
   #image-container img {
     width: 100%;
-    max-width: 90%;    /* 화면에 너무 꽉 차는 걸 방지 */
-    height: auto;      /* 비율 유지 */
+    max-width: 100%;    /* 화면에 너무 꽉 차는 걸 방지 */
+    height: 100%      /* 비율 유지 */
     display: block;
-    margin: 0 auto 60px auto;
+    
   }
 }
   
