@@ -261,18 +261,15 @@ body {
     gap: 20px;
   }
 
-@media screen and (max-width: 769px) {
-  
- #image-container img {
-   margin-bottom: 60px;
-   width: 350px; /* 또는 600px 등으로 원하는 크기 지정 가능 */
-   align-content: center;
+@media screen and (max-width: 768px) {
+  #image-container img {
+    width: 100%;
+    max-width: 90%;    /* 화면에 너무 꽉 차는 걸 방지 */
+    height: auto;      /* 비율 유지 */
+    display: block;
+    margin: 0 auto 60px auto;
   }
-
-
- 
 }
-
   
 
 
