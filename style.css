@@ -267,7 +267,7 @@ body {
 
 
   #image-container img {
-    margin-top: 0%;
+    margin-top: 10%;
     max-width: 100%;    /* 화면에 너무 꽉 차는 걸 방지 */
     height: auto;     /* 비율 유지 */
     display: block;
