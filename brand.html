@@ -268,7 +268,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-  prevBtn.addEventListener("click", () => {
+ prevBtn.addEventListener("click", () => {
     if (currentIndex > 0) {
       currentIndex--;
       showImage(currentIndex);
@@ -276,11 +276,20 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   nextBtn.addEventListener("click", () => {
-    if (currentIndex < images[currentProject].length - 1) {
-      currentIndex++;
+  if (currentIndex < images[currentProject].length - 1) {
+    currentIndex++;
+    showImage(currentIndex);
+  } else {
+    if (!overlayApplied) {
+      applyOverlayIfLastImage(); // 필터 덮기
+      overlayApplied = true;
+    } else {
+      currentIndex = 0;
+      overlayApplied = false;
       showImage(currentIndex);
     }
-  });
+  }
+});
 
 
 
