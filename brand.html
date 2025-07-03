@@ -316,25 +316,25 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 }
 
-
 container.addEventListener("click", () => {
   if (!currentProject || !images[currentProject]) return;
 
   const lastIndex = images[currentProject].length - 1;
+
   if (currentIndex < lastIndex) {
-    // ◀ 중간 이미지 클릭 시
+    // ◀ 중간 이미지 클릭
     currentIndex++;
-    overlayApplied = false;      // 크레딧 다시 보여주도록 초기화
+    overlayApplied = false;
     showImage(currentIndex);
 
   } else {
-    // ▶ 마지막 이미지 클릭 시
+    // ▶ 마지막 이미지 클릭
     if (!overlayApplied) {
-      showImage(currentIndex);      // 마지막 이미지 재로드
-      applyOverlayIfLastImage();    // 크레딧 오버레이 적용
-      overlayApplied = true;        // 한 번만 적용됨
+      showImage(currentIndex);           // 마지막 이미지 재로드
+      applyOverlayIfLastImage();        // 크레딧 오버레이 적용
+      overlayApplied = true;            // 한 번만 적용되도록
     } else {
-      // 크레딧 이미 보여진 다음 클릭 – 초기 상태로 돌아감
+      // 크레딧 보여진 다음 클릭 → 순환
       currentIndex = 0;
       overlayApplied = false;
       showImage(currentIndex);
