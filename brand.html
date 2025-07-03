@@ -314,17 +314,30 @@ window.addEventListener("DOMContentLoaded", () => {
     toggle.classList.add("rotate");
   }
 }
+
+
+
 container.addEventListener("click", () => {
   if (currentProject && images[currentProject]) {
     if (currentIndex < images[currentProject].length - 1) {
       currentIndex++;
+      showImage(currentIndex);
+      overlayApplied = false; // 중간 이미지일 땐 항상 false
     } else {
-      applyOverlayIfLastImage(); // ✅ 마지막 이미지일 때 크레딧 보여주기
-      currentIndex = 0;
+      if (!overlayApplied) {
+        showImage(currentIndex);  // 마지막 이미지 재로드 → wrapper 초기화 후
+        applyOverlayIfLastImage(); // 크레딧 덮어씌우기
+        overlayApplied = true; // 이거 꼭 있어야 다시 안 지워짐
+      } else {
+        currentIndex = 0;
+        overlayApplied = false;
+        showImage(currentIndex); // 처음부터 다시 시작
+      }
     }
-    showImage(currentIndex);
   }
 });
+
+
 
 function showImage(index) {
   const loader = document.getElementById("loader");
