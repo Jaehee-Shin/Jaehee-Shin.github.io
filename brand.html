@@ -105,10 +105,10 @@
 
 
 
+
 function applyOverlayIfLastImage() {
-  const overlayWrapper = document.querySelector(".image-overlay");
   const isLast = currentIndex === images[currentProject].length - 1;
-  
+  const overlayWrapper = document.querySelector(".image-overlay");
 
   if (isLast && overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
     overlayWrapper.classList.add("show-filter");
@@ -131,6 +131,7 @@ function applyOverlayIfLastImage() {
     overlayWrapper.appendChild(credit);
   }
 }
+
 
 
 const projectCredits = {
