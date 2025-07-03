@@ -106,8 +106,9 @@
 
 
 function applyOverlayIfLastImage() {
-  const isLast = currentIndex === images[currentProject].length - 1;
   const overlayWrapper = document.querySelector(".image-overlay");
+  const isLast = currentIndex === images[currentProject].length - 1;
+  
 
   if (isLast && overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
     overlayWrapper.classList.add("show-filter");
@@ -316,23 +317,27 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 
 
-
 container.addEventListener("click", () => {
-  if (currentProject && images[currentProject]) {
-    if (currentIndex < images[currentProject].length - 1) {
-      currentIndex++;
-      showImage(currentIndex);
-      overlayApplied = false; // 중간 이미지일 땐 항상 false
+  if (!currentProject || !images[currentProject]) return;
+
+  const lastIndex = images[currentProject].length - 1;
+  if (currentIndex < lastIndex) {
+    // ◀ 중간 이미지 클릭 시
+    currentIndex++;
+    overlayApplied = false;      // 크레딧 다시 보여주도록 초기화
+    showImage(currentIndex);
+
+  } else {
+    // ▶ 마지막 이미지 클릭 시
+    if (!overlayApplied) {
+      showImage(currentIndex);      // 마지막 이미지 재로드
+      applyOverlayIfLastImage();    // 크레딧 오버레이 적용
+      overlayApplied = true;        // 한 번만 적용됨
     } else {
-      if (!overlayApplied) {
-        showImage(currentIndex);  // 마지막 이미지 재로드 → wrapper 초기화 후
-        applyOverlayIfLastImage(); // 크레딧 덮어씌우기
-        overlayApplied = true; // 이거 꼭 있어야 다시 안 지워짐
-      } else {
-        currentIndex = 0;
-        overlayApplied = false;
-        showImage(currentIndex); // 처음부터 다시 시작
-      }
+      // 크레딧 이미 보여진 다음 클릭 – 초기 상태로 돌아감
+      currentIndex = 0;
+      overlayApplied = false;
+      showImage(currentIndex);
     }
   }
 });
