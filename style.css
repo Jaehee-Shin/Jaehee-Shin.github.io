@@ -262,6 +262,14 @@ body {
   }
 
 @media screen and (max-width: 768px) {
+
+  #image-container {
+  display: flex;
+  justify-content: center;     /* 가로 중앙 */
+  align-items: center;         /* 세로 중앙 */
+  height: 100vh;               /* 화면 전체 높이 */
+  overflow: hidden;
+}
   #image-container img {
     width: 100%;
     max-width: 90%;    /* 화면에 너무 꽉 차는 걸 방지 */
