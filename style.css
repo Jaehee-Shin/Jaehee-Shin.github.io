@@ -46,7 +46,7 @@ body {
 
   .image-description {
   position: fixed;
-  bottom: 50px;
+  top: 50px;
   left: 20px;
   font-size: 13px;
   line-height: 1.4;
@@ -68,7 +68,7 @@ body {
     
 
  #image-container img {
-   width: 200vh; /* 또는 600px 등으로 원하는 크기 지정 가능 */
+   width: 400px; /* 또는 600px 등으로 원하는 크기 지정 가능 */
   height: auto; /* 비율 유지 */
   transition: opacity 1s ease, transform 1s ease;
 }
