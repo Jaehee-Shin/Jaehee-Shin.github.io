@@ -279,18 +279,17 @@ body {
     height: auto !important;
   }
 
-   #image-container {
+    #image-container {
     display: flex;
-    justify-content: center;   /* ✅ 이미지 수평 중앙 */
-    align-items: center;       /* ✅ 이미지 수직 중앙 */
-    height: 100vh;             /* ✅ 화면 전체를 꽉 채움 */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 이미지만 정중앙으로 배치하기 위해 화면 전체 높이 */
   }
 
   #image-container img {
     max-width: 90vw;
     height: auto;
     display: block;
-    object-fit: contain;
   }
 }
 
