@@ -267,11 +267,10 @@ body {
 
 
  .image-description {
-    top: 100px;
-    background-color: white;
+    top: 50px;
+    
     color: #424242;
     font-size: 13px;
-    line-height: 1.5;
     max-width: 100%;
   }
 
@@ -280,18 +279,20 @@ body {
     height: auto !important;
   }
 
-  #image-container {
-    flex-direction: column;
-    height: auto;          
-    justify-content: center; /* ✅ 이미지를 수평 가운데 정렬 */     /* 이미지 강제 높이 제거 */
+   #image-container {
+    display: flex;
+    justify-content: center;   /* ✅ 이미지 수평 중앙 */
+    align-items: center;       /* ✅ 이미지 수직 중앙 */
+    height: 100vh;             /* ✅ 화면 전체를 꽉 채움 */
   }
 
   #image-container img {
-    max-width: 100%;
+    max-width: 90vw;
     height: auto;
+    display: block;
+    object-fit: contain;
   }
 }
-  
 
 
   
