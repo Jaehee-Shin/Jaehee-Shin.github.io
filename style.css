@@ -266,35 +266,35 @@ body {
 @media screen and (max-width: 768px) {
 
 
- .image-description {
-    top: 50px;
-    color: #424242;
-    font-size: 13px;
-    max-width: 100%;
+ body, html {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
   }
 
-  html, body {
-    height: auto !important;
+  .slider-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* 💡 여기서 화면 전체 기준으로 중앙정렬 */
   }
 
     #image-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 이미지만 정중앙으로 배치하기 위해 화면 전체 높이 */
   }
 
   #image-container img {
     max-width: 90vw;
     height: auto;
     display: block;
-    bottom: 50%;
+    object-fit: contain;
   }
 
    #prevBtn,
   #nextBtn {
-    display: block;
-    position: absolute;
+    position: absolute; /* 이미지 기준으로 위치 고정 */
     top: 50%;
     transform: translateY(-50%);
     z-index: 1000;
