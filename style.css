@@ -270,7 +270,7 @@ body {
 
   #image-container img {
     position: static;  /* ✅ absolute 제거 */
-    max-width: 85%;    /* ✅ 너비를 %로 지정 */
+    max-width: 85vh;    /* ✅ 너비를 %로 지정 */
     height: auto;      /* 비율 유지 */
     display: block;
     margin: 0 auto;    /* 중앙 정렬 */
