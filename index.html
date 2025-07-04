@@ -93,16 +93,14 @@
 
   const projectDescriptions = {
   can: {
-    line1: "Can",
-    line2: "Type: Bag",
-    line3: "Material: Goat skin, Canvas",
-    line4: "Year: 2025"
+    line1: "Type: Bag",
+    line2: "Material: Goat skin, Canvas",
+    line3: "Year: 2025"
   },
   braidedhair: {
-    line1: "Braided hair",
-    line2: "Type: belt",
-    line3: "Material: Cow leather, Brass buckle",
-    line4: "Year: 2025"
+    line1: "Type: belt",
+    line2: "Material: Cow leather, Brass buckle",
+    line3: "Year: 2025"
   }
 };
 
@@ -301,6 +299,8 @@ window.addEventListener("DOMContentLoaded", () => {
     toggle.classList.add("rotate");
   }
 }
+
+
 container.addEventListener("click", () => {
   if (currentProject && images[currentProject]) {
     if (currentIndex < images[currentProject].length - 1) {
