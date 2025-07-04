@@ -282,7 +282,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* 이미지만 정중앙으로 배치하기 위해 화면 전체 높이 */
-    transform: translateY(-4vh); /* ✅ 이거 한 줄만 추가하면 위로 올라갑니다! */ 
+    transform: translateY(-3vh); /* ✅ 이거 한 줄만 추가하면 위로 올라갑니다! */ 
   }
 
   #image-container img {
@@ -296,7 +296,7 @@ body {
   #nextBtn {
     display: block;
     position: absolute;
-    top: 50%; /* ✅ 이미지 기준 중앙 */
+    top: 45%; /* ✅ 이미지 기준 중앙 */
     transform: translateY(-50%);
     z-index: 10;
     font-size: 30px;
