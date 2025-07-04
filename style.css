@@ -68,7 +68,7 @@ body {
     
 
  #image-container img {
-   width: 100%; /* 또는 600px 등으로 원하는 크기 지정 가능 */
+   width: 80%; /* 또는 600px 등으로 원하는 크기 지정 가능 */
   height: auto; /* 비율 유지 */
   transition: opacity 1s ease, transform 1s ease;
 }
@@ -266,14 +266,31 @@ body {
 @media screen and (max-width: 768px) {
 
 
+ .image-description {
+    position: static;       /* ✅ fixed 없애기 */
+    margin-top: 20px;       /* 이미지 아래 여백 */
+    padding: 0 20px;
+    background-color: white;
+    color: #424242;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  html, body {
+    overflow: auto !important;  /* ✅ 스크롤 가능하게 */
+    height: auto !important;
+  }
+
+  #image-container {
+    flex-direction: column;
+    height: auto;               /* 이미지 강제 높이 제거 */
+  }
 
   #image-container img {
-    max-width: 100%;    /* 화면에 너무 꽉 차는 걸 방지 */
-    height: auto;     /* 비율 유지 */
-    margin-top: -50px;
-    
+    max-width: 100%;
+    height: auto;
   }
- 
 }
   
 
