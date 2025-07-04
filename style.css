@@ -62,7 +62,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 80vh; /* 원하는 높이로 조절 가능 */
+  height: auto; /* 원하는 높이로 조절 가능 */
 }
 
     
