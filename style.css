@@ -277,43 +277,43 @@ body {
     height: auto !important;
   }
 
- #image-container {
-  position: relative; /* 화살표가 이미지 기준으로 움직이도록 설정 */
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  overflow: hidden;
+    #image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 이미지만 정중앙으로 배치하기 위해 화면 전체 높이 */
+    transform: translateY(-3vh); /* ✅ 이거 한 줄만 추가하면 위로 올라갑니다! */ 
+  }
+
+  #image-container img {
+    max-width: 90vw;
+    height: auto;
+    display: block;
+    bottom: 50%;
+  }
+
+   #prevBtn,
+  #nextBtn {
+    display: block;
+    position: absolute;
+    top: 50%; /* ✅ 이미지 기준 중앙 */
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  #prevBtn {
+    left: 10px;
+  }
+
+  #nextBtn {
+    right: 10px;
+  }
 }
 
-.image-overlay {
-  position: relative; /* ✅ 화살표 위치 기준이 될 요소 */
-  display: inline-block;
-}
-
-/* 기존 fixed → absolute 변경 */
-#prevBtn,
-#nextBtn {
-  display: block;
-  position: absolute;   /* ✅ 이미지 기준 위치! */
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-}
-
-#prevBtn {
-  left: -40px; /* 이미지 기준으로 바깥쪽 */
-}
-
-#nextBtn {
-  right: -40px;
-}
-}
 
 
   
