@@ -290,7 +290,25 @@ body {
     display: block;
     bottom: 20%;
   }
+
+   #prevBtn,
+  #nextBtn {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+
+  #prevBtn {
+    left: 10px;
+  }
+
+  #nextBtn {
+    right: 10px;
+  }
 }
+
 
 
   
