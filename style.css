@@ -267,29 +267,26 @@ body {
 
 
  .image-description {
-    position: static;       /* ✅ fixed 없애기 */
-    margin-top: 20px;       /* 이미지 아래 여백 */
+    position: static;         /* 겹치지 않게 */
+    margin-top: 20px;         /* 여유 공간 */
+    margin-bottom: 30px;
     padding: 0 20px;
-    background-color: white;
-    color: #424242;
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 14px;
+    background-color: white;  /* 흰 배경 */
+    width: 100%;
     max-width: 100%;
-  }
-
-  html, body {
-    overflow: auto !important;  /* ✅ 스크롤 가능하게 */
-    height: auto !important;
   }
 
   #image-container {
-    flex-direction: column;
-    height: auto;               /* 이미지 강제 높이 제거 */
+    margin-top: 0;            /* 위 여백 제거 */
+    flex-direction: column;  /* 세로 흐름 */
+    height: auto !important;
+    align-items: center;
   }
 
-  #image-container img {
-    max-width: 100%;
-    height: auto;
+  html, body {
+    overflow-y: auto !important;
+    height: auto !important;
   }
 }
   
