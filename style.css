@@ -269,7 +269,7 @@ body {
  .image-description {
     position: static;       /* ✅ fixed 없애기 */
     
-    
+    top: 50px;
     background-color: white;
     color: #424242;
     font-size: 13px;
