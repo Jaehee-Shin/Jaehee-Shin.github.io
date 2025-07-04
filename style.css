@@ -269,7 +269,7 @@ body {
 
 
   #image-container img {
-    max-width: 80%;    /* 화면에 너무 꽉 차는 걸 방지 */
+    width: 80%;    /* 화면에 너무 꽉 차는 걸 방지 */
     height: auto;     /* 비율 유지 */
     
   }
