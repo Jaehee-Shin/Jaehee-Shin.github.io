@@ -282,6 +282,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* 이미지만 정중앙으로 배치하기 위해 화면 전체 높이 */
+    transform: translateY(-5vh); /* ✅ 이거 한 줄만 추가하면 위로 올라갑니다! */ 
   }
 
   #image-container img {
