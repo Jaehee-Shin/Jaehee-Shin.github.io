@@ -23,7 +23,7 @@
 <div id="modal-menu" class="modal">
   <!-- <span class="close-modal" onclick="closeMenu()">×</span> -->
   <div class="modal-content">
-    <a href="index.html">Project</a>
+    <a href="index.html" class="active-menu">Project</a>
     <a href="brand.html">Brand</a>
     <a href="note.html">Note</a>
     <a href="about.html">About</a>
@@ -188,6 +188,15 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("desc-line3").textContent = desc.line3;
 });
 
+
+window.addEventListener("DOMContentLoaded", () => {
+  const currentPage = location.pathname.split("/").pop();
+
+  document.querySelectorAll(".modal-content a").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active-menu");
+    }
+  });
 
 
 
