@@ -11,6 +11,7 @@ body {
     font-size: 16px;
     color: #424242;
     overflow: scroll;
+    padding: 20%;
   }
 
 
@@ -75,7 +76,7 @@ body {
 #project-select {
 font-size: 13px;    /* 글씨 크기 */
 position: fixed;
-padding: 20%;
+
   
  
 }
