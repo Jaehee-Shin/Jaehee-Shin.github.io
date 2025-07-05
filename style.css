@@ -17,7 +17,9 @@ body {
 
 
  html, body {
-  height: 100%;
+  overflow-x: hidden !important;  /* 좌우 스크롤 확실히 제거 */
+  overflow-y: auto;
+  height: auto;
 }
 
 
@@ -261,15 +263,13 @@ opacity: 0.8;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 이미지만 정중앙으로 배치하기 위해 화면 전체 높이 */
-    transform: translateY(-2vh); /* ✅ 이거 한 줄만 추가하면 위로 올라갑니다! */ 
-  }
+   }
 
   #image-container img {
-    max-width: 90vw;
+    max-width: 100%;
     height: auto;
     display: block;
-    bottom: 50%;
+
   }
 
 
