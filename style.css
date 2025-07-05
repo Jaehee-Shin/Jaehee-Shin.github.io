@@ -50,14 +50,12 @@ body {
 }
 
 .image-credit {
-  text-align: center;
+  margin-top: 15px;
   font-size: 13px;
   color: #777;
+  text-align: center;
   line-height: 1.6;
-  margin-top: 20px;
-  margin-bottom: 40px;
 }
-
 
 #image-container.vertical-images {
   display: flex;
