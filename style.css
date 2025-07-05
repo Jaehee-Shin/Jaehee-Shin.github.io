@@ -57,7 +57,7 @@ body {
 }
 
 #image-container.vertical-images img {
-  width: 350px;
+  width: 500px;
   height: auto;
   display: block;
 }
