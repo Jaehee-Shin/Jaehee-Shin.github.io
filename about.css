@@ -192,6 +192,8 @@ body {
 
 
 .plus-icon {
+  top: 5px;
+  right: 5px;
   position: relative;
   width: 60px;
   height: 60px;
@@ -203,11 +205,12 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 35px;
-  height: 3px;
+  width: 25px;
+  height: 2px;
   background-color: black;
   transform: translate(-50%, -50%);
 }
+
 
 
 /* 수직 막대 */
