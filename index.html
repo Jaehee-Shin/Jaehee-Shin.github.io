@@ -207,63 +207,60 @@ document.getElementById("project-select").addEventListener("change", function ()
   }
 });
 
-
 window.addEventListener("DOMContentLoaded", () => {
   let currentPage = location.pathname.split("/").pop() || "index.html";
   if (!currentPage.endsWith(".html")) currentPage = "index.html";
 
   document.querySelectorAll(".modal-content a").forEach(link => {
     const linkHref = link.getAttribute("href");
-    if (currentPage.includes(linkHref)) {
+    if (linkHref && currentPage.includes(linkHref)) {
       link.classList.add("active-menu");
     }
   });
 
-  // 초기 선택 세팅
+  // ✅ 초기 project 세팅
   const projectSelect = document.getElementById("project-select");
   projectSelect.value = "can";
   currentProject = "can";
-  currentIndex = 0;
-  isFirstLoad = true;
 
-  if (images[currentProject]) {
-    showImage(currentIndex);
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
+  // ✅ 이미지 세로 출력
+  showImagesVertically();
 
-    const desc = projectDescriptions[currentProject];
-    document.getElementById("desc-line1").textContent = desc.line1;
-    document.getElementById("desc-line2").textContent = desc.line2;
-    document.getElementById("desc-line3").textContent = desc.line3;
-    document.getElementById("desc-line4").textContent = desc.line4;
-    document.getElementById("desc-line5").textContent = desc.line5;
-    document.getElementById("desc-line6").textContent = desc.line6;
-  }
+  // ✅ 설명 텍스트 세팅
+  const desc = projectDescriptions[currentProject];
+  document.getElementById("desc-line1").textContent = desc.line1;
+  document.getElementById("desc-line2").textContent = desc.line2;
+  document.getElementById("desc-line3").textContent = desc.line3;
+  document.getElementById("desc-line4").textContent = desc.line4 || "";
+  document.getElementById("desc-line5").textContent = desc.line5 || "";
+  document.getElementById("desc-line6").textContent = desc.line6 || "";
 });
 
 
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      showImage(currentIndex);
-    }
-  });
 
-  nextBtn.addEventListener("click", () => {
-  if (currentIndex < images[currentProject].length - 1) {
-    currentIndex++;
-    showImage(currentIndex);
-  } else {
-    if (!overlayApplied) {
-      applyOverlayIfLastImage(); // 필터 덮기
-      overlayApplied = true;
-    } else {
-      currentIndex = 0;
-      overlayApplied = false;
-      showImage(currentIndex);
-    }
-  }
-});
+
+//   prevBtn.addEventListener("click", () => {
+//     if (currentIndex > 0) {
+//       currentIndex--;
+//       showImage(currentIndex);
+//     }
+//   });
+
+//   nextBtn.addEventListener("click", () => {
+//   if (currentIndex < images[currentProject].length - 1) {
+//     currentIndex++;
+//     showImage(currentIndex);
+//   } else {
+//     if (!overlayApplied) {
+//       applyOverlayIfLastImage(); // 필터 덮기
+//       overlayApplied = true;
+//     } else {
+//       currentIndex = 0;
+//       overlayApplied = false;
+//       showImage(currentIndex);
+//     }
+//   }
+// });
    
 
 
