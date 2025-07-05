@@ -37,7 +37,7 @@ body {
   .image-description {
   position: fixed;
   top: 80px;
-  left: 50px;
+  left: 40px;
   font-size: 13px;
   line-height: 1.4;
   z-index: 1000;
@@ -85,9 +85,10 @@ body {
 #project-select {
 font-size: 15px;    /* 글씨 크기 */
 position: fixed;
-left: 50px;
+left: 40px;
 top: 40px;
 z-index: 1000;
+opacity: 0.1;
 }
 
 
@@ -96,8 +97,8 @@ z-index: 1000;
 
 .update {
       position: fixed;
-      bottom: 20px;
-      left: 50px;
+      bottom: 30px;
+      left: 40px;
       font-size: 11px;
       z-index: 1000;
       opacity: 0.3;
@@ -180,7 +181,7 @@ z-index: 1000;
   .menu-toggle {
   position: fixed;
   top: 40px;
-  right: 50px;
+  right: 40px;
   z-index: 2001;
   cursor: pointer;
  
