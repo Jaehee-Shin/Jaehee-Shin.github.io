@@ -181,14 +181,10 @@ body {
 }
 
 
-  .menu-toggle {
-  position: fixed;
-  top: 20px;
-  right: 25px;
-  z-index: 2001;
-  cursor: pointer;
- 
-}
+.menu-toggle {
+    top: 10px;
+    right: 10px;
+  }
 
 
 .plus-icon {
