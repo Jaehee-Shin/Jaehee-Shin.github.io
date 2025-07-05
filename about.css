@@ -90,7 +90,10 @@ body {
 }
 
 
-
+#emailSelect {
+  width: 50px;     /* 너비 조절 */
+  font-size: 17px;
+}
 
 
 
