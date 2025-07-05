@@ -347,15 +347,17 @@ function showImagesVertically() {
 
     // 마지막 이미지인 경우 크레딧도 같이 붙이기
     if (index === imgList.length - 1) {
-      const credit = document.createElement("p");
-      credit.className = "image-credit";
-      credit.innerHTML = `
-        ${creditData.line1}<br>
-        ${creditData.line2}<br>
-        ${creditData.line3}
-      `;
-      wrapper.appendChild(credit);  // ← 이미지 바로 아래에 삽입
-    }
+  const credit = document.createElement("p");
+  credit.className = "image-credit";
+
+  let creditHTML = `${creditData.line1}<br>${creditData.line2}`;
+  if (creditData.line3) {
+    creditHTML += `<br>${creditData.line3}`;
+  }
+
+  credit.innerHTML = creditHTML;
+  wrapper.appendChild(credit);
+}
   });
 }
 
