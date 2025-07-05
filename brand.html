@@ -33,8 +33,8 @@
 
  
   <select id="project-select">
-    <option value="miguproduct">migu product</option>
-    <option value="sunab">sunab</option>
+    <option value="miguproduct">Migu product</option>
+    <option value="sunab">Sunab</option>
   </select>
 
 
@@ -145,13 +145,36 @@ function applyOverlayIfLastImage() {
 const projectCredits = {
   miguproduct: {
     line1: "Migu product official website",
-    line2: "www.miguproduct.com",
+    line2: "www.miguproduct.cafe24.com/",
   },
   sunab: {
-    line1: "Sunab official website ",
+    line1: "Sunab official website",
     line2: "www.sunab.kr",
   }
 };
+
+function applyOverlayIfLastImage() {
+  const isLast = currentIndex === images[currentProject].length - 1;
+  const overlayWrapper = document.querySelector(".image-overlay");
+
+  if (isLast && overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
+    overlayWrapper.classList.add("show-filter");
+
+    const existingCredit = overlayWrapper.querySelector(".overlay-credit");
+    if (existingCredit) existingCredit.remove();
+
+    const credit = document.createElement("div");
+    credit.className = "overlay-credit";
+
+    const creditData = projectCredits[currentProject];
+    credit.innerHTML = `
+      <p>${creditData.line1}</p>
+      <p><a href="https://${creditData.line2}" target="_blank">${creditData.line2}</a></p>
+    `;
+
+    overlayWrapper.appendChild(credit);
+  }
+}
 
 
 //   const container = document.getElementById("image-container");
