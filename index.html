@@ -189,14 +189,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-window.addEventListener("DOMContentLoaded", () => {
-  const currentPage = location.pathname.split("/").pop();
 
-  document.querySelectorAll(".modal-content a").forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active-menu");
-    }
-  });
 
 
 
