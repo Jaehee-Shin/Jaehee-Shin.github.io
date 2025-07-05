@@ -63,8 +63,7 @@ body {
   align-items: center;
   gap: 50px;
   margin-top: 40px;
-  overflow-y: auto;
-  max-height: 85vh;
+ 
 }
 
 #image-container.vertical-images img {
