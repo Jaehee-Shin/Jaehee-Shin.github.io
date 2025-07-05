@@ -51,9 +51,7 @@
   <p class= "update"> Last update: 2025.06.21 </p>
 
   <div class="slider-wrapper">
-  <button id="prevBtn">&#x3008;</button>
   <div id="image-container"></div>
-  <button id="nextBtn">&#x3009;</button>
 </div>
 
   
@@ -80,120 +78,138 @@
 //   }
 // };
 
+
+
+
+  const projectDescriptions = {
+  can: {
+    line1: "Type: Bag",
+    line2: "Material: Goat skin, Canvas",
+    line3: "Year: 2025"
+  },
+  braidedhair: {
+    line1: "Type: Belt",
+    line2: "Material: Cow leather, Brass buckle",
+    line3: "Year: 2025"
+  }
+};
+
   let currentIndex = 0;
   let currentProject = "";
   let isFirstLoad = true; // 🔑 최초 로딩 여부 체크용
 
-  const container = document.getElementById("image-container");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
+  let overlayApplied = false; // ✅ 블러 적용 여부 플래그
 
-  function showImage(index) {
-  const loader = document.getElementById("loader");
-  loader.style.display = "block"; // 🔵 로딩 시작
 
-  container.innerHTML = "";
 
-  const img = document.createElement("img");
-  img.src = images[currentProject][index];
 
-  img.onload = () => {
-    loader.style.display = "none"; // ✅ 이미지 완전히 로드되면 숨김
-    container.appendChild(img);
+function applyOverlayIfLastImage() {
+  const isLast = currentIndex === images[currentProject].length - 1;
+  const overlayWrapper = document.querySelector(".image-overlay");
 
-    // 최초 로딩 시에만 페이드인 효과
-    if (isFirstLoad) {
-      img.classList.add("pre-fade");
-      requestAnimationFrame(() => {
-        img.classList.add("fade-in");
-        img.classList.remove("pre-fade");
-      });
-      isFirstLoad = false;
-    }
-  };
+  if (isLast && overlayWrapper && !overlayWrapper.classList.contains("show-filter")) {
+    overlayWrapper.classList.add("show-filter");
+
+    // 기존 크레딧 제거
+    const existingCredit = overlayWrapper.querySelector(".overlay-credit");
+    if (existingCredit) existingCredit.remove();
+
+    // 크레딧 생성
+    const credit = document.createElement("div");
+    credit.className = "overlay-credit";
+
+    const creditData = projectCredits[currentProject]; // 📌 동적으로 크레딧 가져오기
+    credit.innerHTML = `
+      <p>${creditData.line1}</p>
+      <p>${creditData.line2}</p>
+      <p>${creditData.line3}</p>
+    `;
+
+    overlayWrapper.appendChild(credit);
+  }
 }
+
+
+const projectCredits = {
+  can: {
+    line1: "Photography: San Choi",
+    line2: "Hair: Taehyun Kim",
+    line3: "Model: Youngjoo Jee"
+  },
+  braidedhair: {
+    line1: "Photography: San Choi",
+    line2: "Hair: Taehyun Kim",
+    line3: "Model: Youngjoo Jee"
+  }
+};
+
+
+ 
+
+
 
 document.getElementById("project-select").addEventListener("change", function () {
   currentProject = this.value;
   currentIndex = 0;
   isFirstLoad = true;
 
-  if (images[currentProject]) {
-    showImage(currentIndex);
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
+  showImagesVertically(); // 슬라이드 대신 세로 나열
 
-    // 설명 텍스트 세팅
-    const desc = projectDescriptions[currentProject];
-    document.getElementById("desc-line1").textContent = desc.line1;
-    document.getElementById("desc-line2").textContent = desc.line2;
-    document.getElementById("desc-line3").textContent = desc.line3;
-    document.getElementById("desc-line4").textContent = desc.line4;
-    document.getElementById("desc-line5").textContent = desc.line5;
-    document.getElementById("desc-line6").textContent = desc.line6;
-
-  } else {
-    container.innerHTML = "";
-    prevBtn.style.display = "none";
-    nextBtn.style.display = "none";
-
-    for (let i = 1; i <= 6; i++) {
-      document.getElementById(`desc-line${i}`).textContent = "";
-    }
-
-    document.getElementById("desc-line1").textContent = "";
-    document.getElementById("desc-line2").textContent = "";
-    document.getElementById("desc-line3").textContent = "";
-
-  }
+  const desc = projectDescriptions[currentProject];
+  document.getElementById("desc-line1").textContent = desc.line1;
+  document.getElementById("desc-line2").textContent = desc.line2;
+  document.getElementById("desc-line3").textContent = desc.line3;
+  document.getElementById("desc-line4").textContent = desc.line4 || "";
+  document.getElementById("desc-line5").textContent = desc.line5 || "";
+  document.getElementById("desc-line6").textContent = desc.line6 || "";
 });
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
-  // ✅ 메뉴 활성화
-  let currentPage = location.pathname.split("/").pop() || "note.html";
-  document.querySelectorAll(".modal-content a").forEach(link => {
-    const linkHref = link.getAttribute("href");
-    if (currentPage.includes(linkHref)) {
-      link.classList.add("active-menu");
-    }
-  });
-
-  // ✅ 초기 이미지 세팅
   const projectSelect = document.getElementById("project-select");
-  projectSelect.value = "hose";
-  currentProject = "hose";
-  currentIndex = 0;
-  isFirstLoad = true;
+  projectSelect.value = "can";
+  currentProject = "can";
 
-  if (images[currentProject]) {
-    showImage(currentIndex);
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
+  showImagesVertically();  // 슬라이드 대신 세로 나열
 
-    const desc = projectDescriptions[currentProject];
-    document.getElementById("desc-line1").textContent = desc.line1;
-    document.getElementById("desc-line2").textContent = desc.line2;
-    document.getElementById("desc-line3").textContent = desc.line3;
-    document.getElementById("desc-line4").textContent = desc.line4 || "";
-    document.getElementById("desc-line5").textContent = desc.line5 || "";
-    document.getElementById("desc-line6").textContent = desc.line6 || "";
-  }
+  const desc = projectDescriptions[currentProject];
+  document.getElementById("desc-line1").textContent = desc.line1;
+  document.getElementById("desc-line2").textContent = desc.line2;
+  document.getElementById("desc-line3").textContent = desc.line3;
 });
 
 
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      showImage(currentIndex);
-    }
-  });
 
-  nextBtn.addEventListener("click", () => {
-    if (currentIndex < images[currentProject].length - 1) {
-      currentIndex++;
-      showImage(currentIndex);
-    }
-  });
+
+
+
+
+//   prevBtn.addEventListener("click", () => {
+//     if (currentIndex > 0) {
+//       currentIndex--;
+//       showImage(currentIndex);
+//     }
+//   });
+
+//   nextBtn.addEventListener("click", () => {
+//   if (currentIndex < images[currentProject].length - 1) {
+//     currentIndex++;
+//     showImage(currentIndex);
+//   } else {
+//     if (!overlayApplied) {
+//       applyOverlayIfLastImage(); // 필터 덮기
+//       overlayApplied = true;
+//     } else {
+//       currentIndex = 0;
+//       overlayApplied = false;
+//       showImage(currentIndex);
+//     }
+//   }
+// });
+   
+
+
 
   function toggleMenu() {
   const modal = document.getElementById("modal-menu");
@@ -227,16 +243,59 @@ window.addEventListener("DOMContentLoaded", () => {
     toggle.classList.add("rotate");
   }
 }
+
+
 container.addEventListener("click", () => {
   if (currentProject && images[currentProject]) {
     if (currentIndex < images[currentProject].length - 1) {
       currentIndex++;
+      showImage(currentIndex);
     } else {
-      currentIndex = 0; // 마지막 이미지면 처음으로
+      if (!overlayApplied) {
+        applyOverlayIfLastImage(); // 필터 덮기
+        overlayApplied = true;
+      } else {
+        currentIndex = 0;
+        overlayApplied = false;
+        showImage(currentIndex);
+      }
     }
-    showImage(currentIndex);
   }
 });
+
+
+function showImagesVertically() {
+  const container = document.getElementById("image-container");
+  container.innerHTML = "";
+  container.classList.add("vertical-images");
+
+  const imgList = images[currentProject];
+  const creditData = projectCredits[currentProject];
+
+  imgList.forEach((src, index) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "image-wrapper";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.loading = "lazy";
+
+    wrapper.appendChild(img);
+    container.appendChild(wrapper);
+
+    // 마지막 이미지인 경우 크레딧도 같이 붙이기
+    if (index === imgList.length - 1) {
+      const credit = document.createElement("p");
+      credit.className = "image-credit";
+      credit.innerHTML = `
+        ${creditData.line1}<br>
+        ${creditData.line2}<br>
+        ${creditData.line3}
+      `;
+      wrapper.appendChild(credit);  // ← 이미지 바로 아래에 삽입
+    }
+  });
+}
 
 
 </script>
