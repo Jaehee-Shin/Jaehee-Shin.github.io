@@ -185,119 +185,69 @@ const projectCredits = {
 //   };
 // }
 
-const container = document.getElementById("image-container");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
 
-
-  // 현재 페이지 파일명 가져오기
-  const currentPage = location.pathname.split("/").pop();
-
-  // 메뉴 링크들 선택
-  document.querySelectorAll(".modal-content a").forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active-menu");
-    }
-  });
 
   
 
-document.getElementById("project-select").addEventListener("change", function () {
+  document.getElementById("project-select").addEventListener("change", function () {
   currentProject = this.value;
   currentIndex = 0;
   isFirstLoad = true;
 
-  if (images[currentProject]) {
-    showImage(currentIndex);
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
+  showImagesVertically(); // 슬라이드 대신 세로 나열
 
-    // 설명 텍스트 세팅
-    const desc = projectDescriptions[currentProject];
-    document.getElementById("desc-line1").textContent = desc.line1;
-    document.getElementById("desc-line2").textContent = desc.line2;
-    document.getElementById("desc-line3").textContent = desc.line3;
-    document.getElementById("desc-line4").textContent = desc.line4;
-    document.getElementById("desc-line5").textContent = desc.line5;
-    document.getElementById("desc-line6").textContent = desc.line6;
-
-  } else {
-    container.innerHTML = "";
-    prevBtn.style.display = "none";
-    nextBtn.style.display = "none";
-
-    for (let i = 1; i <= 6; i++) {
-      document.getElementById(`desc-line${i}`).textContent = "";
-    }
-
-    document.getElementById("desc-line1").textContent = "";
-    document.getElementById("desc-line2").textContent = "";
-    document.getElementById("desc-line3").textContent = "";
-
-  }
+  const desc = projectDescriptions[currentProject];
+  document.getElementById("desc-line1").textContent = desc.line1;
+  document.getElementById("desc-line2").textContent = desc.line2;
+  document.getElementById("desc-line3").textContent = desc.line3;
+  document.getElementById("desc-line4").textContent = desc.line4 || "";
+  document.getElementById("desc-line5").textContent = desc.line5 || "";
+  document.getElementById("desc-line6").textContent = desc.line6 || "";
 });
+
+
 
 
 
 window.addEventListener("DOMContentLoaded", () => {
-  let currentPage = location.pathname.split("/").pop();
-  if (!currentPage || currentPage === "") {
-    currentPage = "brand.html";
-  }
-
-  // 메뉴에서 현재 페이지 링크 찾아서 active 적용
-  document.querySelectorAll(".modal-content a").forEach(link => {
-    const linkHref = link.getAttribute("href");
-    if (currentPage.includes(linkHref)) {
-      link.classList.add("active-menu");
-    }
-  });
-
-  // 초기 설정...
   const projectSelect = document.getElementById("project-select");
   projectSelect.value = "miguproduct";
   currentProject = "miguproduct";
-  currentIndex = 0;
-  isFirstLoad = true;
 
-  if (images[currentProject]) {
-    showImage(currentIndex);
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
+  showImagesVertically();  // 슬라이드 대신 세로 나열
 
-    const desc = projectDescriptions[currentProject];
-    document.getElementById("desc-line1").textContent = desc.line1;
-    document.getElementById("desc-line2").textContent = desc.line2;
-    document.getElementById("desc-line3").textContent = desc.line3;
-    document.getElementById("desc-line4").textContent = desc.line4;
-    document.getElementById("desc-line5").textContent = desc.line5;
-    document.getElementById("desc-line6").textContent = desc.line6;
-  }
+  const desc = projectDescriptions[currentProject];
+  document.getElementById("desc-line1").textContent = desc.line1;
+  document.getElementById("desc-line2").textContent = desc.line2;
+  document.getElementById("desc-line3").textContent = desc.line3;
 });
 
 
- prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      showImage(currentIndex);
-    }
-  });
 
-  nextBtn.addEventListener("click", () => {
-  if (currentIndex < images[currentProject].length - 1) {
-    currentIndex++;
-    showImage(currentIndex);
-  } else {
-    if (!overlayApplied) {
-      applyOverlayIfLastImage(); // 필터 덮기
-      overlayApplied = true;
-    } else {
-      currentIndex = 0;
-      overlayApplied = false;
-      showImage(currentIndex);
-    }
-  }
-});
+
+
+//  prevBtn.addEventListener("click", () => {
+//     if (currentIndex > 0) {
+//       currentIndex--;
+//       showImage(currentIndex);
+//     }
+//   });
+
+//   nextBtn.addEventListener("click", () => {
+//   if (currentIndex < images[currentProject].length - 1) {
+//     currentIndex++;
+//     showImage(currentIndex);
+//   } else {
+//     if (!overlayApplied) {
+//       applyOverlayIfLastImage(); // 필터 덮기
+//       overlayApplied = true;
+//     } else {
+//       currentIndex = 0;
+//       overlayApplied = false;
+//       showImage(currentIndex);
+//     }
+//   }
+// });
 
 
 
@@ -355,35 +305,37 @@ container.addEventListener("click", () => {
 
 
 
-function showImage(index) {
-  const loader = document.getElementById("loader");
-  loader.style.display = "block";
+function showImagesVertically() {
+  const container = document.getElementById("image-container");
   container.innerHTML = "";
+  container.classList.add("vertical-images");
 
-  const wrapper = document.createElement("div");
-  wrapper.classList.add("image-overlay");
-  wrapper.style.position = "relative";
+  const imgList = images[currentProject];
+  const creditData = projectCredits[currentProject];
 
-  const img = document.createElement("img");
-  img.src = images[currentProject][index];
+  imgList.forEach((src, index) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "image-wrapper";
 
-  img.onload = () => {
-    loader.style.display = "none";
+    const img = document.createElement("img");
+    img.src = src;
+    img.loading = "lazy";
+
     wrapper.appendChild(img);
     container.appendChild(wrapper);
 
-    // ✅ 오버레이 초기화는 여기에만
-    wrapper.classList.remove("show-filter");
-
-    if (isFirstLoad) {
-      img.classList.add("pre-fade");
-      requestAnimationFrame(() => {
-        img.classList.add("fade-in");
-        img.classList.remove("pre-fade");
-      });
-      isFirstLoad = false;
+    // 마지막 이미지인 경우 크레딧도 같이 붙이기
+    if (index === imgList.length - 1) {
+      const credit = document.createElement("p");
+      credit.className = "image-credit";
+      credit.innerHTML = `
+        ${creditData.line1}<br>
+        ${creditData.line2}<br>
+        ${creditData.line3}
+      `;
+      wrapper.appendChild(credit);  // ← 이미지 바로 아래에 삽입
     }
-  };
+  });
 }
 
 
