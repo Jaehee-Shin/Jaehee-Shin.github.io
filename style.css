@@ -84,6 +84,7 @@ body {
 #project-select {
 font-size: 13px;    /* 글씨 크기 */
 position: fixed;
+z-index: 1000;
 
   
  
