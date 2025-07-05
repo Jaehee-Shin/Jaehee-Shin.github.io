@@ -50,11 +50,13 @@ body {
 }
 
 .image-credit {
-  margin-top: 15px;
+  text-align: left;
   font-size: 13px;
   color: #777;
-  text-align: center;
   line-height: 1.6;
+  margin-top: 20px;
+  margin-left: 0; /* ← 혹시 몰라서 명시해둠 */
+  margin-bottom: 50px;
 }
 
 #image-container.vertical-images {
@@ -74,11 +76,10 @@ body {
 
 .image-wrapper {
   display: flex;
-  flex-direction: column; /* ← 수직 정렬 */
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* ← 이미지와 크레딧 모두 왼쪽 정렬 */
 }
-
 
 
 
