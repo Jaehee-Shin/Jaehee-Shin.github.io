@@ -52,9 +52,7 @@
   <p class= "update"> Last update: 2025.06.21 </p>
 
   <div class="slider-wrapper">
-  <button id="prevBtn">&#x3008;</button>
   <div id="image-container"></div>
-  <button id="nextBtn">&#x3009;</button>
 </div>
 
   
@@ -155,20 +153,7 @@ const projectCredits = {
 };
 
 
-  const container = document.getElementById("image-container");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-
-
-  // 현재 페이지 파일명 가져오기
-  const currentPage = location.pathname.split("/").pop();
-
-  // 메뉴 링크들 선택
-  document.querySelectorAll(".modal-content a").forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active-menu");
-    }
-  });
+ 
 
 
 
