@@ -37,8 +37,8 @@ body {
 
   .image-description {
   position: fixed;
-  top: 80px;
-  left: 40px;
+  top: 70px;
+  left: 42px;
   font-size: 13px;
   line-height: 1.4;
   z-index: 1000;
@@ -250,7 +250,7 @@ opacity: 0.8;
 
  .image-description {
     top: 70px;
-    left: 30px;
+    left: 32px;
     color: #424242;
     font-size: 14px;
     max-width: 100%;
