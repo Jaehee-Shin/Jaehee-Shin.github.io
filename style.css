@@ -180,6 +180,7 @@ opacity: 0.1;
 
   .menu-toggle {
   position: fixed;
+  size: 30px;
   top: 40px;
   right: 40px;
   z-index: 2001;
