@@ -18,7 +18,7 @@ body {
   height: 100%;
 }
 
-.overlay-credit {
+/*.overlay-credit {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,7 +28,7 @@ body {
   color: #000;
   z-index: 20;
   line-height: 1.6;
-}
+}*/
 
 .modal-content a.active-menu {
   position: relative;
@@ -68,7 +68,7 @@ body {
 }
 
 #image-container.vertical-images img {
-  max-width: 90vw;
+  width: 350px;
   height: auto;
   display: block;
 }
