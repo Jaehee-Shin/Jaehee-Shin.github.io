@@ -347,8 +347,24 @@ opacity: 0.8;
       opacity: 0.3;
     }    
 
+    #emailSelect {
+  width: 100px;     /* 너비 조절 */
+  font-size: 16px;
+}
 
-  
+#instaSelect {
+  width: 100px;
+  font-size: 16px;
+}
+
+
+  .about-text {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  left: 40px;
+}
+
 
   
 
