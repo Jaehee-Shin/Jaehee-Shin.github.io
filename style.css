@@ -55,30 +55,29 @@ body {
   max-width: 300px;
   opacity: 0.7;
 }
-    
-#image-container {
-  margin-top: 30px;
+
+
+#image-container.vertical-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-top: 40px;
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+#image-container.vertical-images img {
+  max-width: 90vw;
+  height: auto;
+  display: block;
+}
+
+.image-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  height: 80vh; /* 원하는 높이로 조절 가능 */
 }
 
-    
-
- #image-container img {
-   width: 400px; /* 또는 600px 등으로 원하는 크기 지정 가능 */
-  height: auto; /* 비율 유지 */
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-
-.slider-wrapper {
-  position: relative;
-  width: 100%;         /* 전체 너비 */
-  height: auto;
-}
 
 #prevBtn, #nextBtn {
   display: none;
