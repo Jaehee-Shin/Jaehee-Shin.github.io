@@ -273,15 +273,7 @@ opacity: 0.8;
   }
 
 
-.menu-toggle {
-  position: fixed;
-  size: 100px;
-  top: 30px;
-  right: 35px;
-  z-index: 2001;
-  cursor: pointer;
- 
-}
+
 
 #project-select {
 font-size: 16px;    /* 글씨 크기 */
@@ -292,7 +284,25 @@ z-index: 1000;
 opacity: 0.8;
 }
 
+.plus-icon {
+  top: 30px;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  transform-origin: center center; 
+  transition: transform 0.3s ease;
 }
+
+.bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 5px;
+  background-color: black;
+  transform: translate(-50%, -50%);
+}
+
 
 
 .update {
