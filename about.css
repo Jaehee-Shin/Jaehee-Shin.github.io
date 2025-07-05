@@ -181,15 +181,18 @@ body {
 }
 
 
-.menu-toggle {
-    top: 10px;
-    right: 10px;
-  }
+  .menu-toggle {
+  position: fixed;
+  size: 30px;
+  top: 30px;
+  right: 40px;
+  z-index: 2001;
+  cursor: pointer;
+ 
+}
 
 
 .plus-icon {
-  top: 5px;
-  right: 5px;
   position: relative;
   width: 60px;
   height: 60px;
@@ -201,12 +204,11 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 25px;
-  height: 2px;
+  width: 35px;
+  height: 3px;
   background-color: black;
   transform: translate(-50%, -50%);
 }
-
 
 
 /* 수직 막대 */
