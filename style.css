@@ -250,7 +250,7 @@ opacity: 0.8;
  .image-description {
     top: 50px;
     color: #424242;
-    font-size: 13px;
+    font-size: 14px;
     max-width: 100%;
   }
 
@@ -274,7 +274,7 @@ opacity: 0.8;
 
 .menu-toggle {
   position: fixed;
-  size: 30px;
+  size: 100px;
   top: 30px;
   right: 30px;
   z-index: 2001;
