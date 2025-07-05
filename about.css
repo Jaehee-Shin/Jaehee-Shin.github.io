@@ -348,12 +348,12 @@ opacity: 0.8;
     }    
 
     #emailSelect {
-  width: 100px;     /* 너비 조절 */
+  width: 90px;     /* 너비 조절 */
   font-size: 16px;
 }
 
 #instaSelect {
-  width: 100px;
+  width: 110px;
   font-size: 16px;
 }
 
