@@ -285,8 +285,8 @@ opacity: 0.8;
 }
 
 .plus-icon {
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
   position: relative;
   width: 60px;
   height: 60px;
@@ -298,7 +298,7 @@ opacity: 0.8;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 20px;
+  width: 30px;
   height: 2px;
   background-color: black;
   transform: translate(-50%, -50%);
