@@ -139,7 +139,7 @@ body {
 #menuSelect {
 
   margin-left:30px;
-  
+  position: fixed;
 
 }
 
