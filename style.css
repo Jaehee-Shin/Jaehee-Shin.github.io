@@ -305,6 +305,11 @@ opacity: 0.8;
 }
 
 
+ #image-container.vertical-images {
+    padding-top: 140px;  /* 모바일용 여백 */
+  }
+
+
 
 .update {
       position: fixed;
